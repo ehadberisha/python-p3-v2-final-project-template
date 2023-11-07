@@ -1,32 +1,24 @@
-# lib/cli.py
+#!/usr/bin/env python3
 
-from helpers import (
-    exit_program,
-    helper_1,
-    list_teams
-)
-
+from helpers import list_teams
+from seed import seed_database
+import os
 
 def main():
     while True:
-        menu()
-        choice = input("> ")
-        if choice == "0":
-            exit_program()
-        elif choice == "1":
-            helper_1()
+        print("1. Seed Database")
+        print("2. List Teams")
+        print("3. Exit")
+        choice = input("Enter your choice: ")
+
+        if choice == "1":
+            seed_database()
         elif choice == "2":
             list_teams()
+        elif choice == "3":
+            exit_program()
         else:
-            print("Invalid choice")
-
-
-def menu():
-    print("Please select an option:")
-    print("0. Exit the program")
-    print("1. Some useful function")
-    print("2. List Teams")
-
+            print("Invalid choice. Please enter 1, 2, or 3.")
 
 if __name__ == "__main__":
     main()

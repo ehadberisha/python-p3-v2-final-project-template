@@ -2,10 +2,10 @@ from models.__init__ import CONN, CURSOR
 from models.team import Team
 
 def seed_database():
-    Team.create_table()
     Team.drop_table()
+    Team.create_table()
     
-atlanta_hawks = Team("Atlanta Hawks", "Southeast")
+atlanta_hawks = Team.create_team("Atlanta Hawks", "Southeast")
 boston_celtics = Team("Boston Celtics", "Atlantic")
 brooklyn_nets = Team("Brooklyn Nets", "Atlantic")
 charlotte_hornets = Team("Charlotte Hornets", "Southeast")
@@ -35,6 +35,7 @@ san_antonio_spurs = Team("San Antonio Spurs", "Southwest")
 toronto_raptors = Team("Toronto Raptors", "Atlantic")
 utah_jazz = Team("Utah Jazz", "Northwest")
 washington_wizards = Team("Washington Wizards", "Southeast")
+
 
 seed_database()
 print("Seeded database")
