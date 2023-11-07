@@ -1,5 +1,6 @@
 # lib/models/team.py
 from models.__init__ import CURSOR, CONN
+from fuzzysearch import find_near_matches
 
 
 class Team:
@@ -85,6 +86,21 @@ class Team:
         """
         row = CURSOR.execute(sql, (name,)).fetchone()
         return row
+    
+    @classmethod
+    def find_team_by_name_fuzzy(cls, name):
+        sql = """
+            SELECT *
+            FROM teams
+        """
+        rows = CURSOR.execute(sql).fetchall()
+        result = []
+        for row in rows:
+            text_string = row[1]
+            matches = find_near_matches(name.lower(), text_string.lower(), max_l_dist = 1)
+            if matches !=[]:
+                result.append(row)
+        return result
 
     @classmethod
     def find_team_by_id(cls, id):
