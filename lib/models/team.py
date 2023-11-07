@@ -86,6 +86,15 @@ class Team:
         row = CURSOR.execute(sql, (name,)).fetchone()
         return row
 
+    @classmethod
+    def find_team_by_id(cls, id):
+        sql = """
+            SELECT * FROM teams WHERE id = ?
+        """
+        row = CURSOR.execute(sql, (id,)).fetchone()
+        return row
+
+
 
     # def find_players(self):
     #     from models.players import Players

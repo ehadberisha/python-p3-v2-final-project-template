@@ -4,7 +4,8 @@ from helpers import (
     exit_program,
     list_teams,
     list_players,
-    find_team_by_name
+    find_team_by_name,
+    find_team_by_id
 )
 
 
@@ -20,6 +21,8 @@ def main():
             list_teams()
         elif choice == "3":
             find_team_by_name()
+        elif choice == "4":
+            find_team_by_id()
         else:
             print("Invalid choice")
 
@@ -30,6 +33,7 @@ def menu():
     print("1. List all the players")
     print("2. List all the teams")
     print("3. Find team by name.")
+    print("4. Find team by id.")
 
 
 if __name__ == "__main__":
