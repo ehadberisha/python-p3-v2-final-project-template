@@ -24,8 +24,14 @@ class Players:
         return self._team
     def set_team(self, new_team):
         if isinstance(new_team, Team):
-                self._team = new_team
+            self._team = new_team
+                # sql = """UPDATE players SET team = ?"""
+                # params_tuple = (self.team)
+                # CURSOR.execute(sql, params_tuple)
+                # CONN.commit()
     team = property(get_team, set_team)
+
+    #player has a team id, update the team id for the player in the database
 
 
     @classmethod
@@ -57,8 +63,7 @@ class Players:
 
     # @classmethod
     # def from_db(clas, row_tuple):
-    #     player = Players(row_tuple[1])
-    #     player.team = row_tuple[2]
+    #     player = Players(row_tuple[1], row_tuple[2])
     #     player.id = row_tuple[0]
     #     return player
 
