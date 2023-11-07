@@ -16,3 +16,5 @@ def list_teams():
     teams = Team.get_all()
     for team in teams:
         print(f"Name: {team.name}, Division: {team.division}")
+
+# hellofeofwe
