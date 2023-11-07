@@ -26,3 +26,20 @@ def list_players():
     print("PLAYER ID", "\t", '{0: <25}'.format("NAME"), "TEAM ID")
     for player in players:
         print(player[0], "\t", "\t", '{0: <25}'.format(player[1]), player[2])
+
+
+def find_team_by_name():
+    name_input = input("Type in team's name: ")
+    team_search = Team.find_team_by_name(name_input)
+    print(team_search)
+    if len(team) < 1:
+        print("\n No team found by that name in database.")
+    else:
+        for team in team:
+            print(team_search)
+    
+# def find_players_by_team():
+#     players = Players.find_players()
+#     team = input("Enter the team name: ")
+
+    

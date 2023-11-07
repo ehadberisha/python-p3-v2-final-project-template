@@ -4,9 +4,10 @@ from models.team import Team
 
 class Players:
 
-    def __init__(self, name, team):
+    def __init__(self, name, team, id = None):
         self.name = name
         self.team = team
+        self.id = id
 
     def get_name(self):
         return self._name
@@ -54,6 +55,14 @@ class Players:
         CONN.commit()
         return self
 
+    # @classmethod
+    # def from_db(clas, row_tuple):
+    #     player = Players(row_tuple[1])
+    #     player.team = row_tuple[2]
+    #     player.id = row_tuple[0]
+    #     return player
+
+    
     @classmethod
     def get_all(cls):
         sql = """
@@ -62,3 +71,6 @@ class Players:
         """
         rows = CURSOR.execute(sql).fetchall()
         return rows
+        # return [Players.from_db(row) for row in rows]
+        
+    

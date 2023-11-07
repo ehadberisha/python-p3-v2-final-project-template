@@ -69,10 +69,31 @@ class Team:
 
     @classmethod
     def get_all(cls):
-        """Return a list containing a Team object per row in the table"""
         sql = """
             SELECT *
             FROM teams
         """
         rows = CURSOR.execute(sql).fetchall()
         return rows
+    
+    @classmethod
+    def find_team_by_name(cls, name):
+        sql = """
+            SELECT *
+            FROM teams
+            WHERE name is ?
+        """
+        row = CURSOR.execute(sql, (name,)).fetchone()
+        return row
+
+
+    # def find_players(self):
+    #     from models.players import Players
+    #     sql = """
+    #         SELECT * FROM players 
+    #         WHERE team = ?
+    #     """
+    #     CURSOR.execute(sql, (self.team,),)
+    #     rows = CURSOR.fetchall()
+    #     return rows
+
