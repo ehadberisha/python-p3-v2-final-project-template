@@ -31,9 +31,6 @@ class Players:
                 # CONN.commit()
     team = property(get_team, set_team)
 
-    #player has a team id, update the team id for the player in the database
-
-
     @classmethod
     def create_table(cls):
         sql = """ 
