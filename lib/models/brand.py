@@ -153,7 +153,6 @@ class Brand:
             if matches !=[]:
                 result.append(row)
         return result
-            # print(result)
 
     @classmethod
     def find_by_id(cls, id):
