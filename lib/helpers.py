@@ -79,13 +79,23 @@ def find_driver_by_name():
 def list_brands_by_country():
     country = input("Enter the country of origin: ")
     country = country.lower()
-    brands = [brand for brand in Brand.get_all() if brand.coo.lower() == country]
+    # brands = [brand for brand in Brand.find_by_coo_fuzzy(country) if brand[2].lower() == country]
+    brands = Brand.find_by_coo_fuzzy(country)
     if brands:
         print(f"Car brands from {country}:")
         for brand in brands:
             print(brand)
     else:
-        print(f"No car brands found from {country}.")
+        print(f"No car brands found from {country}. Try option 1 to see all cars and countries listed out.")
+
+# def find_team_by_name():
+#     name_input = input("Type in team's name: ")
+#     # team_search = Team.find_team_by_name(name_input)
+#     team_search = Team.find_team_by_name_fuzzy(name_input)
+#     if len(team_search) < 1:
+#         print("\n No team found by that name in database. Try typing in a team like in the format Washington Wizards")
+#     else:
+#         print(team_search)
 
 def create_driver():
     name = input("Enter the driver's name: ")

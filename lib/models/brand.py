@@ -1,6 +1,6 @@
 #lib/models/brand.py
 from models.__init__ import CURSOR, CONN
-
+from fuzzysearch import find_near_matches
 
 class Brand:
 
@@ -137,6 +137,23 @@ class Brand:
         del type(self).all[self.id]
 
         self.id = None
+    
+    @classmethod
+    def find_by_coo_fuzzy(cls, coo):
+        sql = """
+            SELECT *
+            FROM brands
+        """
+        rows = CURSOR.execute(sql).fetchall()
+        result = []
+        for row in rows:
+            print(row)
+            text_string = row[2]
+            matches = find_near_matches(coo.lower(), text_string.lower(), max_l_dist = 0)
+            if matches !=[]:
+                result.append(row)
+        return result
+            # print(result)
 
     @classmethod
     def find_by_id(cls, id):
