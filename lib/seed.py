@@ -85,5 +85,6 @@ def seed_database():
     Studebaker = Brand.create("Studebaker", "United States")
     AMC = Brand.create("AMC", "United States")
 
+
 seed_database()
 print("Seeded database")

@@ -27,6 +27,7 @@ def main():
 
 
     while True:
+
         menu()
         choice = input("Select an option (0-11): ")
         if choice == "0":
@@ -89,7 +90,6 @@ def menu():
     print("11. \033[1m\033[33m--------------- START GAME ---------------\033[0m")
     print("------------------------------------------")
     print("------------------------------------------")
-
 
 def start_game():
     print("Welcome to the START GAME page.")

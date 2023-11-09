@@ -2,6 +2,7 @@
 from models.brand import Brand
 from models.driver import Driver
 
+
 def helper_1():
     print("Performing useful function#1.")
 
