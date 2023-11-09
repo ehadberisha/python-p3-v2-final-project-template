@@ -66,6 +66,9 @@ def find_brand_by_name():
 def find_driver_by_name():
     name = input("Enter the driver's name: ")
     name = name.lower()
+
+    driver= None
+
     for db_driver in Driver.get_all():
         if db_driver.name.lower() == name:
             driver = db_driver
@@ -168,6 +171,9 @@ def list_drivers_by_brand():
 def find_brand_by_driver_name():
     name = input("Enter the driver's name: ")
     name = name.lower()
+
+    driver= None
+    
     for db_driver in Driver.get_all():
         if db_driver.name.lower() == name:
             driver = db_driver

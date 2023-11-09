@@ -11,8 +11,7 @@ from helpers import (
     delete_driver,
     find_driver_by_name,
     list_drivers_by_brand,
-    find_brand_by_driver_name,
-    start_game,
+    find_brand_by_driver_name
 )
 
 def main():
@@ -54,9 +53,8 @@ def main():
             list_drivers_by_brand()
         elif choice == "11":
             find_brand_by_driver_name()
-        elif choice == "11":
-            start_game()
-        elif choice == "12":            
+        elif choice == "12":
+            start_game()            
         else:
             print("Invalid choice. Please select a valid option.")
 
@@ -85,9 +83,10 @@ def menu():
     print("------------------------------------------")
     print("10. 🏁List all drivers of a specific brand")
     print("------------------------------------------")
+    print("11.  🔍 List all Cars a Driver has")
     print("------------------------------------------")
     print("------------------------------------------")
-    print("11. \033[1m\033[33m--------------- START GAME ---------------\033[0m")
+    print("12. \033[1m\033[33m--------------- START GAME ---------------\033[0m")
     print("------------------------------------------")
     print("------------------------------------------")
 
